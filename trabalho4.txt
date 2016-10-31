@@ -1,0 +1,65 @@
+Capitulo 8:
+
+import random
+
+state_capitals={"Washington":"Olympia","Oregon":"Salem",\
+                "California":"Sacramento","Ohio":"Columbus",\
+                "Nebraska":"Lincoln","Colorado":"Denver",\
+                "Michigan":"Lansing","Massachusetts":"Boston",\
+                "Florida":"Tallahassee","Texas":"Austin",\
+                "Oklahoma":"Oklahoma City","Hawaii":"Honolulu",\
+                "Alaska":"Juneau","Utah":"Salt Lake City",\
+                "New Mexico":"Santa Fe","North Dakota":"Bismarck",\
+                "South Dakota":"Pierre","West Virginia":"Charleston",\
+                "Virginia":"Richmond","New Jersey":"Trenton",\
+                "Minnesota":"Saint Paul","Illinois":"Springfield",\
+                "Indiana":"Indianapolis","Kentucky":"Frankfort",\
+                "Tennessee":"Nashville","Georgia":"Atlanta",\
+                "Alabama":"Montgomery","Mississippi":"Jackson",\
+                "North Carolina":"Raleigh","South Carolina":"Columbia",\
+                "Maine":"Augusta","Vermont":"Montpelier",\
+                "New Hampshire":"Concord","Connecticut":"Hartford",\
+                "Rhode Island":"Providence","Wyoming":"Cheyenne",\
+                "Montana":"Helena","Kansas":"Topeka",\
+                "Iowa":"Des Moines","Pennsylvania":"Harrisburg",\
+                "Maryland":"Annapolis","Missouri":"Jefferson City",\
+                "Arizona":"Phoenix","Nevada":"Carson City",\
+                "New York":"Albany","Wisconsin":"Madison",\
+                "Delaware":"Dover","Idaho":"Boise",\
+                "Arkansas":"Little Rock","Louisiana":"Baton Rouge"}
+
+capitais = state_capitals
+capitaisUsadas = []
+
+
+for quizNum in range(35):
+    with open('Quiz' + str(quizNum), 'w') as quiz, open('key' + str(quizNum), 'w') as key:
+        quiz.write('this will write')
+        while len(capitaisUsadas) < len(capitais):
+            print('ok')
+            state = random.choice(list(capitais.keys()))
+            if not state in capitaisUsadas:
+                print('fine')
+                quiz.write('this will not write for some reason')
+                capitaisUsadas.append(state)
+                print(capitaisUsadas)
+                print(len(capitaisUsadas))
+_______________________________________________________________________________________________________
+
+Capitulo 7:
+
+import re
+
+capReg = re.compile(r'.*[A-Z].*')
+lowerReg = re.compile(r'.*[a-z].*')
+digitReg = re.compile(r'.*\d.*')
+
+
+def checkPassword(text):
+    if capReg.search(text) and lowerReg.search(text) and digitReg.search(text):
+        return True
+    else:
+        return False
+
+pw = 'kenIsgreat99'
+print(checkPassword(pw))
